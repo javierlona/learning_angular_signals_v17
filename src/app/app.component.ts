@@ -1,5 +1,6 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { BulletinService } from './services/bulletin.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent {
   title = 'angular-signals';
 
   counter = signal(0);
+  myNumber = this.bulletinService.bulletin();
 
   derivedCounter = computed(() => {
     const counter = this.counter();
@@ -28,7 +30,7 @@ export class AppComponent {
     "Reactive Angular Course"
   ]);
 
-  constructor() {
+  constructor(public bulletinService: BulletinService) {
 
     effect(() => {
       const counterValue = this.counter();
@@ -48,5 +50,6 @@ export class AppComponent {
     });
 
     this.courses.update(courses => [...courses, "Angular Core Deep Dive"]);
+    this.bulletinService.square();
   }
 }
