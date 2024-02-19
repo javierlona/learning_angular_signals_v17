@@ -13,7 +13,6 @@ export class AppComponent {
   title = 'angular-signals';
 
   counter = signal(0);
-  myNumber = this.bulletinService.bulletin();
 
   derivedCounter = computed(() => {
     const counter = this.counter();
