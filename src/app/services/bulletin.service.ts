@@ -33,7 +33,7 @@ export class BulletinService {
   getPostById() {
     return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/1')
     .subscribe(response => {
-      console.log("Subscribe", response.valueOf());
+      console.log("getPostById", response.valueOf());
       this.bulletinInfoSignal.set(response);
     })
   }
