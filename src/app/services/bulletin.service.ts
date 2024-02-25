@@ -14,14 +14,18 @@ export class BulletinService {
     title: "Dud",
     body: "ipsum"
   });
+  private bulletinArraySignal = signal<Post[]>([{}]);
 
   readonly bulletin = this.bulletinSignal.asReadonly();
   readonly bulletinInfo = this.bulletinInfoSignal.asReadonly();
+  readonly bulletinArray = this.bulletinArraySignal.asReadonly();
+
 
   constructor(private http: HttpClient) {
     console.log("constructor");
     setTimeout(() => {
       this.getPostById();
+      this.getAllPosts();
       console.log('5second delay!');
     },5000);
   }
@@ -35,6 +39,14 @@ export class BulletinService {
     .subscribe(response => {
       console.log("getPostById", response.valueOf());
       this.bulletinInfoSignal.set(response);
+    })
+  }
+
+  getAllPosts() {
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts/')
+    .subscribe(response => {
+      console.log("getAllPosts", response.valueOf());
+      this.bulletinArraySignal.set(response);
     })
   }
 }
