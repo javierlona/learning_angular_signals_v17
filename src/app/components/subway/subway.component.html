@@ -1,6 +1,7 @@
 <p>subway works!</p>
+<p>Just Body: {{  justBody }}</p>
 <ul>
-  @for (post of bulletinService.bulletinArray(); track post.id) {
+  @for (post of this.postsByUser(); track post.id) {
     <li>{{ post.title }}</li>
   } @empty {
     Empty list of posts
