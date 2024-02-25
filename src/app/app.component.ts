@@ -2,11 +2,12 @@ import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BulletinService } from './services/bulletin.service';
 import { SubwayComponent } from './components/subway/subway.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SubwayComponent],
+  imports: [RouterOutlet, SubwayComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
