@@ -6,8 +6,7 @@ import { Post } from '../../models/Post';
   providedIn: 'root'
 })
 export class BulletinService {
-
-  private bulletinSignal = signal(2);
+  
   private bulletinInfoSignal = signal<Post>({
     id: "0",
     userId: 0,
@@ -16,7 +15,6 @@ export class BulletinService {
   });
   private bulletinArraySignal = signal<Post[]>([{}]);
 
-  readonly bulletin = this.bulletinSignal.asReadonly();
   readonly bulletinInfo = this.bulletinInfoSignal.asReadonly();
   readonly bulletinArray = this.bulletinArraySignal.asReadonly();
 
