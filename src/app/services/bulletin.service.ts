@@ -22,16 +22,12 @@ export class BulletinService {
 
 
   constructor(private http: HttpClient) {
-    console.log("constructor");
-    setTimeout(() => {
+    // console.log("constructor");
+    // setTimeout(() => {
       this.getPostById();
       this.getAllPosts();
-      console.log('5second delay!');
-    },5000);
-  }
-
-  square() {
-    this.bulletinSignal.update(val => val * val);
+      // console.log('5second delay!');
+    // },5000);
   }
 
   getPostById() {

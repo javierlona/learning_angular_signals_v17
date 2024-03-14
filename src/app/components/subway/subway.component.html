@@ -1,16 +1,6 @@
 <p>subway works!</p>
 <p>Display the body of post: {{ postBody }}</p>
 
-<!--
-  Example of needing to import the CommonModule in the imports
-  array within the component to utilize the *ngFor directive
- -->
-<!-- <ul>
-  <li *ngFor="let post of bulletinService.bulletinArray()">
-    {{ post.title }}
-  </li>
-</ul> -->
-
 <ul>
   @for (post of this.postsByUser(); track post.id) {
     <li>{{ post.title }}</li>

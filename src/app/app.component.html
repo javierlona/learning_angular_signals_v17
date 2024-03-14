@@ -1,38 +1,8 @@
 <div class="row">
   <div class="col">
-    <h1>
-      Hello Angular Signals
-    </h1>
+    <h2>Signals as a Data Service</h2>
   </div>
 </div>
-<div class="row">
-  <div class="col">Counter Value: {{ counter() }}</div>
-</div>
-
-<div class="row">
-  <div class="col">Counter Value: {{ derivedCounter() }}</div>
-</div>
-
-<div class="row">
-  <div class="col">Course Title: {{ course().title }}</div>
-</div>
-
-<div class="row">
-  <div class="col">Courses: {{ courses().join(", ") }}</div>
-</div>
-
-<div class="row">
-  <div class="col">
-    <button class="button" (click)="increment()">Increase</button>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col">
-    <p>Square up: {{ bulletinService.bulletin() }}</p>
-  </div>
-</div>
-
 <div class="row">
   <div class="col">
     <p>Signals Data Service: {{ bulletinService.bulletinInfo() | json }}</p>
