@@ -1,6 +1,6 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BulletinService } from './services/bulletin.service';
+import { PostsService } from './services/posts.service';
 import { SubwayComponent } from './components/subway/subway.component';
 import { CommonModule } from '@angular/common';
 
@@ -13,5 +13,5 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
 
-  constructor(public bulletinService: BulletinService) { }
+  constructor(public postsService: PostsService) { }
 }
