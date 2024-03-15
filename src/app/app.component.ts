@@ -1,37 +1,32 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Vehicle } from '../models/Vehicle';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  counter = signal(0);
+  quantity = signal(1);
+  qtyAvailable = signal([1, 2, 3, 4, 5, 6]);
 
-  // A computed signal derives its value from other signals.
-  computedCounter = computed(() => {
-    return this.counter() * 10;
-  });
+  selectedVehicle = signal<Vehicle>({ id: 1, name: 'Prius', price: 10000 });
 
-  course = signal({
-    id: 1,
-    title: "Angular Signals for newbs"
-  });
+  onQuantitySelected(qty: number) {
+    this.quantity.set(qty);
+  }
 
-  constructor() { }
+  totalPrice = computed(() => this.selectedVehicle().price * this.quantity());
 
-  increment() {
-    // Difference between set and update
-    // https://www.angulartraining.com/daily-newsletter/three-ways-to-update-angular-signals/
-    this.counter.update(val => val + 1);
-
-    this.course.set({
-      id: 1,
-      title: "I changed the title!"
+  constructor() { 
+    console.log(this.quantity());
+    effect(() => {
+      console.log('Quantity changed to: ' + this.quantity());
     });
   }
 }

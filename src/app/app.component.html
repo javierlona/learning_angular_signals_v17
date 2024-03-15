@@ -1,24 +1,20 @@
 <div class="row">
   <div class="col">
     <h1>
-      Angular Signals Introduction
+      Drop Down Menu Angular Signals Example
     </h1>
   </div>
-</div>
-<div class="row">
-  <div class="col">Counter Signal Value: {{ counter() }}</div>
-</div>
-
-<div class="row">
-  <div class="col">Computed Signal Value: {{ computedCounter() }}</div>
-</div>
-
-<div class="row">
-  <div class="col">Object Signal Course Title: {{ course().title }}</div>
 </div>
 
 <div class="row">
   <div class="col">
-    <button class="button" (click)="increment()">Increase</button>
+    <h1>Shopping Cart</h1>
+    <select
+    [ngModel]="quantity()"
+    (change)="onQuantitySelected($any($event.target).value)"
+    >
+      <option *ngFor="let q of qtyAvailable()">{{ q }}</option>
+    </select>
+    <div style="font-weight: bold">Total Price: {{ totalPrice() | number: '1.2-2' }}</div>
   </div>
 </div>
